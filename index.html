@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="uz">
+  <head>
+    <link rel="icon" type="image/png" href="https://robocontest.uz/favicon.png">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RoboStyle Sayt</title>
+    <link
+      href="https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <style>
+      /* ======== Asosiy sozlamalar ======== */
+      :root {
+        --bg: #1c1f26;
+        --sidebar: #15181f;
+        --card: #20242c;
+        --accent: #00bcd4;
+        --text: #e0e6ed;
+        --muted: #8a97a6;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      /* ======== Sidebar ======== */
+      .sidebar {
+        width: 240px;
+        background: var(--sidebar);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+      }
+
+      .logo {
+        font-weight: bold;
+        font-size: 20px;
+        color: var(--accent);
+        margin-bottom: 20px;
+        text-align: center;
+        display: flex;
+        align-items: center;
+      }
+
+      aside .logo img {
+        height: 45px;
+        width: 45px;
+        margin-right: 8px;
+      }
+
+      nav {
+        flex: 1;
+      }
+
+      nav a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        text-decoration: none;
+        padding: 10px;
+        border-radius: 8px;
+        transition: 0.2s;
+      }
+
+      nav a:hover {
+        background: var(--card);
+        color: var(--accent);
+      }
+
+      /* Profile */
+      .profile {
+        background: var(--card);
+        padding: 15px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .profile img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+
+      .profile h4 {
+        margin-bottom: 5px;
+      }
+
+      .profile p {
+        font-size: 13px;
+        color: var(--muted);
+      }
+
+      /* ======== Header ======== */
+      header {
+        position: fixed;
+        left: 240px;
+        right: 0;
+        height: 60px;
+        background: var(--card);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 30px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        z-index: 10;
+      }
+
+      header h1 {
+        font-size: 18px;
+        color: var(--text);
+      }
+
+      .auth-buttons {
+        display: flex;
+        gap: 10px;
+      }
+
+      .auth-buttons a {
+        background: var(--accent);
+        color: #fff;
+        padding: 8px 14px;
+        border-radius: 6px;
+        text-decoration: none;
+        font-size: 14px;
+        transition: 0.2s;
+      }
+
+      .auth-buttons a:hover {
+        opacity: 0.9;
+      }
+
+      /* ======== Kontent qismi ======== */
+      .content {
+        margin-left: 240px;
+        margin-top: 70px;
+        padding: 20px;
+        max-width: 1100px;
+        flex: 1;
+      }
+
+      .card {
+        background: var(--card);
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .card h2 {
+        color: var(--accent);
+        margin-bottom: 10px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .item {
+        background: var(--card);
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .item h3 {
+        color: var(--accent);
+        margin-bottom: 8px;
+      }
+
+      /* ======== Footer ======== */
+      footer {
+        background: #14161b;
+        color: var(--muted);
+        text-align: center;
+        padding: 25px 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        margin-left: 240px;
+      }
+
+      footer a {
+        color: var(--accent);
+        /* color: white; */
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .footer-top {
+        background: #22303d;
+        display: inline-block;
+        padding: 8px 16px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .footer-bottom p {
+        margin: 5px 0;
+      }
+
+      .footer-lang {
+        margin-top: 10px;
+      }
+
+      .footer-lang a {
+        margin: 0 8px;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 14px;
+      }
+
+      .footer-lang a:hover {
+        color: var(--accent);
+      }
+
+      @media (max-width: 700px) {
+        .sidebar {
+          display: none;
+        }
+
+        header {
+          left: 0;
+        }
+
+        .content {
+          margin-left: 0;
+        }
+
+        footer {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ======== Sidebar ======== -->
+    <aside class="sidebar">
+      <div class="logo"><img src="./image/image.png" alt="">RoboContest</div>
+
+      <nav>
+        <a href="#"><i class="fas fa-user"></i> Foydalanuvchilar</a>
+        <a href="#"><i class="fas fa-book"></i> Masalalar</a>
+        <a href="#"><i class="fab fa-strava"></i> Urinishlar</a>
+        <a href="#"><i class="fas fa-medal"></i> Olimpiadalar</a>
+        <a href="#"><i class="fas fa-subscript"></i> Testlar</a>
+        <a href="#"><i class="fas fa-graduation-cap"></i> Kurslar</a>
+        <a href="#"><i class="fas fa-pen-alt"></i> Bloglar</a>
+        <a href="#"><i class="fa fa-info-circle"></i> Tizimda ishlash</a>
+      </nav>
+
+      <div class="profile">
+        <img src="https://via.placeholder.com/60" alt="Profile" />
+        <h4>Foydalanuvchi</h4>
+        <p>Web Developer</p>
+      </div>
+    </aside>
+
+    <!-- ======== Header ======== -->
+    <header>
+      <h1>Bosh sahifa</h1>
+      <div class="auth-buttons">
+        <a href="#"><i class="fa fa-key"></i> Kirish</a>
+        <a href="#"><i class="fa fa-user-plus"></i> Ro‘yxatdan o‘tish</a>
+      </div>
+    </header>
+
+    <!-- ======== Kontent ======== -->
+    <main class="content">
+      <div class="card">
+        <h2>Bu qanday sayt?</h2>
+        <p>
+          Bu sayt Robocontest.uz’ning soddalashtirilgan, moslashtirilgan
+          versiyasi. Siz bu yerda dasturlash bo‘yicha mashq qilishingiz,
+          natijalarni kuzatishingiz va o‘zingizning profilingizni
+          boshqarishingiz mumkin.
+        </p>
+      </div>
+
+      <div class="grid">
+        <div class="item">
+          <h3>Tizimda ishlash</h3>
+          <p>Tizim qanday ishlashini o‘rganing va o‘zingizni sinab ko‘ring!</p>
+        </div>
+        <div class="item">
+          <h3>Masalalar</h3>
+          <p>Dasturlash bo‘yicha turli masalalarni yeching va ball to‘plang.</p>
+        </div>
+        <div class="item">
+          <h3>Olimpiadalar</h3>
+          <p>Musobaqalarda qatnashing va o‘z reytingingizni oshiring.</p>
+        </div>
+        <div class="item">
+          <h3>Reyting</h3>
+          <p>Eng kuchli dasturchilar orasida joy oling!</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- ======== Footer ======== -->
+    <footer>
+      <a href="" class="footer-top">
+        <span>Yangiliklardan xabardor bo‘lish uchun 🤖 Telegram kanalimizga obuna bo‘ling</span>
+      </a>
+
+      <div class="footer-bottom">
+        <p>Robocontest.uz Copyrighted © 2020–2025 by <a href="#">Robocontest Team</a></p>
+        <p>Tel: <a href="tel:+998953401070">+998-(95)-340-10-70</a></p>
+      </div>
+
+      <div class="footer-lang">
+        <a href="#">O‘zbekcha</a> |
+        <a href="#">Русский</a> |
+        <a href="#">English</a> |
+        <a href="#">Qaraqalpaqsha</a>
+      </div>
+    </footer>
+  </body>
+</html>
