@@ -4,14 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>RoboStyle Sayt — To'liq (553+ qator)</title>
-    <link rel="icon" type="image/png" href="https://robocontest.uz/favicon.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://robocontest.uz/favicon.png"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
     <style>
-      
       :root {
         --bg: #0f1724;
         --sidebar: #0b1220;
@@ -74,10 +77,10 @@
         bottom: 0;
         overflow-y: auto;
         border-right: 1px solid rgba(255, 255, 255, 0.02);
-        transition: transform 0.28s cubic-bezier(.2,.9,.3,1),
+        transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.3, 1),
           box-shadow 0.22s ease;
         z-index: 1200;
-        box-shadow: 0 8px 30px rgba(2,6,23,0.5);
+        box-shadow: 0 8px 30px rgba(2, 6, 23, 0.5);
       }
 
       .sidebar.hide,
@@ -95,7 +98,7 @@
         height: 48px;
         border-radius: 10px;
         object-fit: cover;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
       }
       .sidebar .logo h3 {
         margin: 0;
@@ -143,8 +146,12 @@
         left: 260px;
         right: 0;
         height: 64px;
-        background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0));
-        border-bottom: 1px solid rgba(255,255,255,0.02);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.01),
+          rgba(0, 0, 0, 0)
+        );
+        border-bottom: 1px solid rgba(255, 255, 255, 0.02);
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -189,7 +196,7 @@
         background: linear-gradient(90deg, var(--accent), var(--accent-2));
         font-weight: 600;
         box-shadow: 0 6px 14px rgba(3, 10, 12, 0.35);
-        transition: transform .14s ease;
+        transition: transform 0.14s ease;
       }
       .auth-buttons a:hover {
         transform: translateY(-2px);
@@ -205,17 +212,21 @@
       footer {
         margin-left: 260px;
         padding: 18px 20px;
-        background: rgba(255,255,255,0.01);
+        background: rgba(255, 255, 255, 0.01);
         color: var(--muted);
         transition: margin-left var(--transition);
       }
 
       .card {
-        background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.01),
+          rgba(0, 0, 0, 0.02)
+        );
         border-radius: var(--radius);
         padding: 14px;
-        box-shadow: 0 6px 20px rgba(2,6,23,0.35);
-        border: 1px solid rgba(255,255,255,0.02);
+        box-shadow: 0 6px 20px rgba(2, 6, 23, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.02);
       }
 
       .grid {
@@ -243,7 +254,7 @@
       }
       tbody td {
         padding: 12px 10px;
-        border-bottom: 1px dashed rgba(255,255,255,0.02);
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.02);
         vertical-align: middle;
       }
 
@@ -267,16 +278,25 @@
 
       .time-badge {
         display: inline-block;
-        background: rgba(255,255,255,0.02);
+        background: rgba(255, 255, 255, 0.02);
         color: var(--muted);
         padding: 4px 8px;
         border-radius: 8px;
         font-size: 12px;
       }
 
-      .problem-level.easy { color: #34d399; font-weight: 700; }
-      .problem-level.medium { color: #fbbf24; font-weight: 700; }
-      .problem-level.hard { color: #fb7185; font-weight: 700; }
+      .problem-level.easy {
+        color: #34d399;
+        font-weight: 700;
+      }
+      .problem-level.medium {
+        color: #fbbf24;
+        font-weight: 700;
+      }
+      .problem-level.hard {
+        color: #fb7185;
+        font-weight: 700;
+      }
 
       .pagination {
         display: flex;
@@ -289,7 +309,7 @@
       .pagination button {
         padding: 8px 12px;
         background: transparent;
-        border: 1px solid rgba(255,255,255,0.04);
+        border: 1px solid rgba(255, 255, 255, 0.04);
         color: var(--text);
         border-radius: 8px;
         cursor: pointer;
@@ -328,7 +348,7 @@
         background: linear-gradient(90deg, var(--accent), var(--accent-2));
         color: #fff;
         cursor: pointer;
-        box-shadow: 0 12px 28px rgba(3,10,12,0.35);
+        box-shadow: 0 12px 28px rgba(3, 10, 12, 0.35);
         z-index: 2000;
         opacity: 0;
         transform: translateY(10px);
@@ -346,7 +366,7 @@
         padding: 8px;
         cursor: pointer;
         border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.03);
+        border: 1px solid rgba(255, 255, 255, 0.03);
       }
 
       @media (max-width: 1000px) {
@@ -401,9 +421,9 @@
         }
       }
 
-      @media (max-width: 480px) {
+      @media (max-width: 580px) {
         .auth-buttons {
-          display: none;
+            display: none;
         }
         .sidebar .mobile-auth {
           display: none;
@@ -418,17 +438,22 @@
       }
 
       .fade-in {
-        animation: fadeIn .36s ease both;
+        animation: fadeIn 0.36s ease both;
       }
       @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(6px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+          opacity: 0;
+          transform: translateY(6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
 
-      
-      @media (min-width:700px){
-        #closeBtn{
-            display: none;
+      @media (min-width: 700px) {
+        #closeBtn {
+          display: none;
         }
       }
     </style>
@@ -438,8 +463,18 @@
     <div class="overlay" id="overlay" aria-hidden="true"></div>
 
     <!-- SIDEBAR -->
-    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Asosiy menyu">
-      <i class="fa fa-times close-btn" id="closeBtn" title="Yopish" aria-hidden="true"></i>
+    <aside
+      class="sidebar"
+      id="sidebar"
+      role="navigation"
+      aria-label="Asosiy menyu"
+    >
+      <i
+        class="fa fa-times close-btn"
+        id="closeBtn"
+        title="Yopish"
+        aria-hidden="true"
+      ></i>
 
       <div class="logo">
         <img src="https://robocontest.uz/favicon.png" alt="RoboContest" />
@@ -447,29 +482,49 @@
       </div>
 
       <nav>
-        <a href="#" id="homeLink" class="active"><i class="fas fa-home"></i> Bosh sahifa</a>
-        <a href="#" id="usersLink"><i class="fas fa-user"></i> Foydalanuvchilar</a>
+        <a href="#" id="homeLink" class="active"
+          ><i class="fas fa-home"></i> Bosh sahifa</a
+        >
+        <a href="#" id="usersLink"
+          ><i class="fas fa-user"></i> Foydalanuvchilar</a
+        >
         <a href="#" id="problemsLink"><i class="fas fa-book"></i> Masalalar</a>
-        <a href="#" id="newsLink"><i class="fas fa-newspaper"></i> Yangiliklar</a>
-        <a href="#" id="lessonsLink"><i class="fas fa-chalkboard-teacher"></i> Darslar</a>
+        <a href="#" id="newsLink"
+          ><i class="fas fa-newspaper"></i> Yangiliklar</a
+        >
+        <a href="#" id="lessonsLink"
+          ><i class="fas fa-chalkboard-teacher"></i> Darslar</a
+        >
         <a href="#" id="chatsLink"><i class="fas fa-comments"></i> Fikrlar</a>
-        <a href="#" id="aboutLink"><i class="fa fa-info-circle"></i> Tizimda ishlash</a>
+        <a href="#" id="aboutLink"
+          ><i class="fa fa-info-circle"></i> Tizimda ishlash</a
+        >
       </nav>
 
       <div class="mobile-auth" aria-hidden="true">
         <a href="#" id="mobileLogin"><i class="fa fa-key"></i> Kirish</a>
-        <a href="#" id="mobileRegister"><i class="fa fa-user-plus"></i> Ro‘yxatdan o‘tish</a>
+        <a href="#" id="mobileRegister"
+          ><i class="fa fa-user-plus"></i> Ro‘yxatdan o‘tish</a
+        >
       </div>
 
-      <div style="margin-top:18px" class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center">
+      <div style="margin-top: 18px" class="card">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+        >
           <div>
-            <div style="font-size:12px;color:var(--muted)">Faol foydalanuvchilar</div>
-            <div style="font-weight:700;color:var(--text)">1,245</div>
+            <div style="font-size: 12px; color: var(--muted)">
+              Faol foydalanuvchilar
+            </div>
+            <div style="font-weight: 700; color: var(--text)">1,245</div>
           </div>
-          <div style="text-align:right">
-            <div style="font-size:12px;color:var(--muted)">Masalalar</div>
-            <div style="font-weight:700;color:var(--text)">1,842</div>
+          <div style="text-align: right">
+            <div style="font-size: 12px; color: var(--muted)">Masalalar</div>
+            <div style="font-weight: 700; color: var(--text)">1,842</div>
           </div>
         </div>
       </div>
@@ -477,19 +532,25 @@
 
     <header>
       <div class="left">
-        <span class="menu-toggle" id="menuToggle" title="Menyu"><i class="fas fa-bars"></i></span>
+        <span class="menu-toggle" id="menuToggle" title="Menyu"
+          ><i class="fas fa-bars"></i
+        ></span>
         <h1 id="pageTitle">Bosh sahifa</h1>
       </div>
 
       <div class="controls">
         <div class="theme-toggle" id="themeToggle" title="Dark/Light">
           <i class="fa fa-moon"></i>
-          <span style="font-size:13px;color:var(--muted);margin-left:6px">Rejim</span>
+          <span style="font-size: 13px; color: var(--muted); margin-left: 6px"
+            >Rejim</span
+          >
         </div>
 
         <div class="auth-buttons" id="authButtons">
           <a href="#" id="loginBtn"><i class="fa fa-key"></i> Kirish</a>
-          <a href="#" id="registerBtn"><i class="fa fa-user-plus"></i> Ro‘yxatdan o‘tish</a>
+          <a href="#" id="registerBtn"
+            ><i class="fa fa-user-plus"></i> Ro‘yxatdan o‘tish</a
+          >
         </div>
       </div>
     </header>
@@ -498,72 +559,175 @@
       <section id="home" class="fade-in">
         <div class="grid">
           <div>
-            <div class="card" style="margin-bottom:18px">
-              <h2 style="margin-top:0">RoboContest ga xush kelibsiz!</h2>
-              <p style="color:var(--muted)">Bu yerda siz dasturlash, algoritmlar va onlayn musobaqalar orqali o'zingizni sinab ko'rishingiz, oʻrganishingiz va jamiyat bilan almashishingiz mumkin.</p>
-              <div style="margin-top:12px;display:flex;gap:10px">
-                <button onclick="showSection('users')" style="padding:10px 14px;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#fff;cursor:pointer">Foydalanuvchilar</button>
-                <button onclick="showSection('problems')" style="padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--text);cursor:pointer">Masalalar</button>
+            <div class="card" style="margin-bottom: 18px">
+              <h2 style="margin-top: 0">RoboContest ga xush kelibsiz!</h2>
+              <p style="color: var(--muted)">
+                Bu yerda siz dasturlash, algoritmlar va onlayn musobaqalar
+                orqali o'zingizni sinab ko'rishingiz, oʻrganishingiz va jamiyat
+                bilan almashishingiz mumkin.
+              </p>
+              <div style="margin-top: 12px; display: flex; gap: 10px">
+                <button
+                  onclick="showSection('users')"
+                  style="
+                    padding: 10px 14px;
+                    border-radius: 8px;
+                    background: linear-gradient(
+                      90deg,
+                      var(--accent),
+                      var(--accent-2)
+                    );
+                    border: none;
+                    color: #fff;
+                    cursor: pointer;
+                  "
+                >
+                  Foydalanuvchilar
+                </button>
+                <button
+                  onclick="showSection('problems')"
+                  style="
+                    padding: 10px 14px;
+                    border-radius: 8px;
+                    border: 1px solid rgba(255, 255, 255, 0.03);
+                    background: transparent;
+                    color: var(--text);
+                    cursor: pointer;
+                  "
+                >
+                  Masalalar
+                </button>
               </div>
             </div>
 
-            <div id="users" style="display:none" class="card">
+            <div id="users" style="display: none" class="card">
               <h3>RoboRating jadvali</h3>
-              <div class="users-table" style="margin-top:12px">
-                <table id="userTable">
-                </table>
-                <div class="pagination" id="userPagination" style="margin-top:12px"></div>
+              <div class="users-table" style="margin-top: 12px">
+                <table id="userTable"></table>
+                <div
+                  class="pagination"
+                  id="userPagination"
+                  style="margin-top: 12px"
+                ></div>
               </div>
             </div>
 
-            <div id="problems" style="display:none;margin-top:14px" class="card problems-table">
+            <div
+              id="problems"
+              style="display: none; margin-top: 14px"
+              class="card problems-table"
+            >
               <h3>Masalalar ro'yxati</h3>
-              <div style="margin-top:10px">
+              <div style="margin-top: 10px">
                 <table id="problemTable"></table>
                 <div class="pagination" id="problemPagination"></div>
               </div>
             </div>
 
-            <div id="news" style="display:none;margin-top:14px" class="card">
+            <div id="news" style="display: none; margin-top: 14px" class="card">
               <h3>Yangiliklar</h3>
-              <ul class="news-list" style="list-style:none;margin-top:10px;padding-left:0">
-                <li><span class="dot"></span><div><strong>Robocontest yangi dizayn</strong><div style="color:var(--muted);font-size:13px">Bugun — yangi interfeys chiqarildi.</div></div></li>
-                <li><span class="dot"></span><div><strong>Musobaqa e'lon qilindi</strong><div style="color:var(--muted);font-size:13px">Ishtirokchilar ro'yxati ochiq.</div></div></li>
-                <li><span class="dot"></span><div><strong>Server texnik ishlari</strong><div style="color:var(--muted);font-size:13px">23-iyun kuni texnik xizmat ko'rsatish bo'ladi.</div></div></li>
+              <ul
+                class="news-list"
+                style="list-style: none; margin-top: 10px; padding-left: 0"
+              >
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <strong>Robocontest yangi dizayn</strong>
+                    <div style="color: var(--muted); font-size: 13px">
+                      Bugun — yangi interfeys chiqarildi.
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <strong>Musobaqa e'lon qilindi</strong>
+                    <div style="color: var(--muted); font-size: 13px">
+                      Ishtirokchilar ro'yxati ochiq.
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <span class="dot"></span>
+                  <div>
+                    <strong>Server texnik ishlari</strong>
+                    <div style="color: var(--muted); font-size: 13px">
+                      23-iyun kuni texnik xizmat ko'rsatish bo'ladi.
+                    </div>
+                  </div>
+                </li>
               </ul>
             </div>
 
-            <div id="lessons" style="display:none;margin-top:14px" class="card">
+            <div
+              id="lessons"
+              style="display: none; margin-top: 14px"
+              class="card"
+            >
               <h3>Darslar</h3>
-              <ol style="margin-top:10px;color:var(--muted)">
+              <ol style="margin-top: 10px; color: var(--muted)">
                 <li>Python asoslari — 12 moduly</li>
                 <li>Ma'lumot tuzilmalari — 8 moduly</li>
                 <li>Algoritmlar — 10 moduly</li>
               </ol>
             </div>
 
-            <div id="chats" style="display:none;margin-top:14px" class="card">
+            <div
+              id="chats"
+              style="display: none; margin-top: 14px"
+              class="card"
+            >
               <h3>Fikrlar</h3>
-              <p style="color:var(--muted)">Jamiyat fikrlarini qoldiring — bu joy beta uchun namunaviy.</p>
+              <p style="color: var(--muted)">
+                Jamiyat fikrlarini qoldiring — bu joy beta uchun namunaviy.
+              </p>
             </div>
           </div>
 
           <aside>
-            <div class="card" style="margin-bottom: 14px;">
-              <h4 style="margin-top:0">Tez ko'rinish</h4>
-              <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
-                <a href="#" onclick="showSection('problems')">Oxirgi masalalar</a>
-                <a href="#" onclick="showSection('users')">Top foydalanuvchilar</a>
+            <div class="card" style="margin-bottom: 14px">
+              <h4 style="margin-top: 0">Tez ko'rinish</h4>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                  margin-top: 8px;
+                "
+              >
+                <a href="#" onclick="showSection('problems')"
+                  >Oxirgi masalalar</a
+                >
+                <a href="#" onclick="showSection('users')"
+                  >Top foydalanuvchilar</a
+                >
                 <a href="#" onclick="showSection('news')">Yangiliklar</a>
               </div>
             </div>
 
             <div class="card">
-              <h4 style="margin-top:0">Statistika</h4>
-              <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;color:var(--muted)">
-                <div>Jami foydalanuvchilar: <strong style="color:var(--text)">12,540</strong></div>
-                <div>Faol 24 soat: <strong style="color:var(--text)">240</strong></div>
-                <div>O'rtacha reyting: <strong style="color:var(--text)">4.5</strong></div>
+              <h4 style="margin-top: 0">Statistika</h4>
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  gap: 8px;
+                  margin-top: 8px;
+                  color: var(--muted);
+                "
+              >
+                <div>
+                  Jami foydalanuvchilar:
+                  <strong style="color: var(--text)">12,540</strong>
+                </div>
+                <div>
+                  Faol 24 soat: <strong style="color: var(--text)">240</strong>
+                </div>
+                <div>
+                  O'rtacha reyting:
+                  <strong style="color: var(--text)">4.5</strong>
+                </div>
               </div>
             </div>
           </aside>
@@ -572,16 +736,30 @@
     </main>
 
     <footer>
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-        <div style="display:flex;gap:12px;align-items:center">
-          <strong style="color:var(--accent)">Robocontest.uz</strong>
-          <span style="color:var(--muted)">© 2020–2025</span>
+      <div
+        style="
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 12px;
+          flex-wrap: wrap;
+        "
+      >
+        <div style="display: flex; gap: 12px; align-items: center">
+          <strong style="color: var(--accent)">Robocontest.uz</strong>
+          <span style="color: var(--muted)">© 2020–2025</span>
         </div>
 
-        <div style="display:flex;gap:8px;align-items:center">
-          <a href="#" style="color:var(--muted);text-decoration:none">Telegram</a>
-          <a href="#" style="color:var(--muted);text-decoration:none">Kontakt</a>
-          <a href="#" style="color:var(--muted);text-decoration:none">GitHub</a>
+        <div style="display: flex; gap: 8px; align-items: center">
+          <a href="#" style="color: var(--muted); text-decoration: none"
+            >Telegram</a
+          >
+          <a href="#" style="color: var(--muted); text-decoration: none"
+            >Kontakt</a
+          >
+          <a href="#" style="color: var(--muted); text-decoration: none"
+            >GitHub</a
+          >
         </div>
       </div>
     </footer>
@@ -653,7 +831,9 @@
         });
         if (sectionsMap[id]) {
           sectionsMap[id].style.display = "block";
-          title.textContent = (document.getElementById(id + "Link")?.textContent || id).trim();
+          title.textContent = (
+            document.getElementById(id + "Link")?.textContent || id
+          ).trim();
         } else {
           sectionsMap.home.style.display = "block";
           title.textContent = "Bosh sahifa";
@@ -682,21 +862,138 @@
       });
 
       const userData = Array.from({ length: 23 }, (_, i) => ({
-        name: ["Asilbek Sunnatov","Dilshodbek Xo'jayev","Nazarbek Baltabaev","Husanboy Mansuraliyev","Sardor Salimov","Raxmatov Keldiyor","Asadbek Kazakov","Rahimov Behruzbek","Gulmira","Ismoiljonov Asadillo","Jasurbek Ilhomov","Yusupov Shavqat","Marjona","Azizbek","F_M","Nizomjon","Olimov Mirojlimon","Bekzod","Murod","Sarvar","Dilshod","Rustam","Kamila"][i % 23],
-        school: ["Muhammad al-Xorazmiy maktabi","-","Xorazmston","New Uzbekistan University","Navoiy Prezident maktabi","TATU","TATU","SamDU","Maktab","Universitet","Maktab 2","Maktab 3","Maktab 4","Maktab 5","Online","Offline","Guruh A","Guruh B","Guruh C","Guruh D","Guruh E","Guruh F","Guruh G"][i % 23],
+        name: [
+          "Asilbek Sunnatov",
+          "Dilshodbek Xo'jayev",
+          "Nazarbek Baltabaev",
+          "Husanboy Mansuraliyev",
+          "Sardor Salimov",
+          "Raxmatov Keldiyor",
+          "Asadbek Kazakov",
+          "Rahimov Behruzbek",
+          "Gulmira",
+          "Ismoiljonov Asadillo",
+          "Jasurbek Ilhomov",
+          "Yusupov Shavqat",
+          "Marjona",
+          "Azizbek",
+          "F_M",
+          "Nizomjon",
+          "Olimov Mirojlimon",
+          "Bekzod",
+          "Murod",
+          "Sarvar",
+          "Dilshod",
+          "Rustam",
+          "Kamila",
+        ][i % 23],
+        school: [
+          "Muhammad al-Xorazmiy maktabi",
+          "-",
+          "Xorazmston",
+          "New Uzbekistan University",
+          "Navoiy Prezident maktabi",
+          "TATU",
+          "TATU",
+          "SamDU",
+          "Maktab",
+          "Universitet",
+          "Maktab 2",
+          "Maktab 3",
+          "Maktab 4",
+          "Maktab 5",
+          "Online",
+          "Offline",
+          "Guruh A",
+          "Guruh B",
+          "Guruh C",
+          "Guruh D",
+          "Guruh E",
+          "Guruh F",
+          "Guruh G",
+        ][i % 23],
         rating: 2650 - i * 15,
         systemRank: 14308 - i * 500,
-        lastActive: i === 0 ? "hozir" : i < 3 ? "2 soat avval" : i < 6 ? "1 kun avval" : i < 12 ? "3 kun avval" : "1 oy avval",
-        avatar: `https://randomuser.me/api/portraits/${i % 2 === 0 ? "men" : "women"}/${10 + i}.jpg`,
+        lastActive:
+          i === 0
+            ? "hozir"
+            : i < 3
+            ? "2 soat avval"
+            : i < 6
+            ? "1 kun avval"
+            : i < 12
+            ? "3 kun avval"
+            : "1 oy avval",
+        avatar: `https://randomuser.me/api/portraits/${
+          i % 2 === 0 ? "men" : "women"
+        }/${10 + i}.jpg`,
       }));
 
       // Problems data
       const problemData = Array.from({ length: 28 }, (_, i) => ({
-        title: ["Minimal son","Teskari massiv","Eng katta raqam","Faktoriyal summasi","Massiv yig'indisi","Binary search","Graf muammosi","DP haqida","String parsing","Segment tree","Fenwick tree","Greedy example","DFS/BFS","Sorting challenge","Hashing task","Geometry problem","Number theory","Combinatorics","Ad-hoc problem","Recursion challenge","Bitmask DP","Flow network","Shortest path","MST challenge","Game theory","Probability","Data structures","Advanced math"][i % 28],
+        title: [
+          "Minimal son",
+          "Teskari massiv",
+          "Eng katta raqam",
+          "Faktoriyal summasi",
+          "Massiv yig'indisi",
+          "Binary search",
+          "Graf muammosi",
+          "DP haqida",
+          "String parsing",
+          "Segment tree",
+          "Fenwick tree",
+          "Greedy example",
+          "DFS/BFS",
+          "Sorting challenge",
+          "Hashing task",
+          "Geometry problem",
+          "Number theory",
+          "Combinatorics",
+          "Ad-hoc problem",
+          "Recursion challenge",
+          "Bitmask DP",
+          "Flow network",
+          "Shortest path",
+          "MST challenge",
+          "Game theory",
+          "Probability",
+          "Data structures",
+          "Advanced math",
+        ][i % 28],
         solved: 12450 - i * 120,
         level: i % 3 === 0 ? "Oson" : i % 3 === 1 ? "O‘rta" : "Qiyin",
         rating: (4.8 - (i % 5) * 0.1).toFixed(1),
-        author: ["Asilbek","Dilshod","Nazirbek","Sardor","Husanboy","Aziz","Lola","Jasur","Malika","Bobur","Islom","Asadbek","Ali","Vali","Sanjar","Diyor","Bek","Shahzod","Munis","Umid","Kamron","Javlon","Madina","Nilufar","Zarif","Oybek","Rustam","Farruh"][i % 28],
+        author: [
+          "Asilbek",
+          "Dilshod",
+          "Nazirbek",
+          "Sardor",
+          "Husanboy",
+          "Aziz",
+          "Lola",
+          "Jasur",
+          "Malika",
+          "Bobur",
+          "Islom",
+          "Asadbek",
+          "Ali",
+          "Vali",
+          "Sanjar",
+          "Diyor",
+          "Bek",
+          "Shahzod",
+          "Munis",
+          "Umid",
+          "Kamron",
+          "Javlon",
+          "Madina",
+          "Nilufar",
+          "Zarif",
+          "Oybek",
+          "Rustam",
+          "Farruh",
+        ][i % 28],
       }));
 
       const rowsPerPageUsers = 5;
@@ -742,7 +1039,13 @@
         `;
 
         const total = Math.ceil(userData.length / rowsPerPageUsers);
-        userPagination.innerHTML = Array.from({ length: total }, (_, i) => `<button class="${i+1 === page ? 'active' : ''}" onclick="renderUserTable(${i+1})">${i+1}</button>`).join("");
+        userPagination.innerHTML = Array.from(
+          { length: total },
+          (_, i) =>
+            `<button class="${
+              i + 1 === page ? "active" : ""
+            }" onclick="renderUserTable(${i + 1})">${i + 1}</button>`
+        ).join("");
       }
 
       const problemTable = document.getElementById("problemTable");
@@ -765,24 +1068,44 @@
             </tr>
           </thead>
           <tbody>
-            ${visible.map((p, i) => `
+            ${visible
+              .map(
+                (p, i) => `
               <tr>
                 <td>${start + i + 1}</td>
                 <td>${p.title}</td>
                 <td>${p.solved}</td>
-                <td><span class="problem-level ${p.level === 'Oson' ? 'easy' : p.level === "O‘rta" ? 'medium' : 'hard'}">${p.level}</span></td>
+                <td><span class="problem-level ${
+                  p.level === "Oson"
+                    ? "easy"
+                    : p.level === "O‘rta"
+                    ? "medium"
+                    : "hard"
+                }">${p.level}</span></td>
                 <td>${p.rating} ⭐</td>
                 <td>${p.author}</td>
               </tr>
-            `).join('')}
+            `
+              )
+              .join("")}
           </tbody>
         `;
 
         const total = Math.ceil(problemData.length / rowsPerPageProblems);
         problemPagination.innerHTML = `
-          <button ${page === 1 ? "disabled" : ""} onclick="renderProblemTable(${page - 1})">⟨ Oldingi</button>
-          ${Array.from({ length: total }, (_, i) => `<button class="${i+1 === page ? 'active' : ''}" onclick="renderProblemTable(${i+1})">${i+1}</button>`).join('')}
-          <button ${page === total ? "disabled" : ""} onclick="renderProblemTable(${page + 1})">Keyingi ⟩</button>
+          <button ${page === 1 ? "disabled" : ""} onclick="renderProblemTable(${
+          page - 1
+        })">⟨ Oldingi</button>
+          ${Array.from(
+            { length: total },
+            (_, i) =>
+              `<button class="${
+                i + 1 === page ? "active" : ""
+              }" onclick="renderProblemTable(${i + 1})">${i + 1}</button>`
+          ).join("")}
+          <button ${
+            page === total ? "disabled" : ""
+          } onclick="renderProblemTable(${page + 1})">Keyingi ⟩</button>
         `;
       }
 
@@ -791,7 +1114,7 @@
 
       function handleResize() {
         const w = window.innerWidth;
-        if (w <= 480) {
+        if (w <= 580) {
           authButtons.style.display = "none";
         } else {
           authButtons.style.display = "flex";
@@ -815,30 +1138,32 @@
         overlay.classList.remove("show");
         alert("Mobile Kirish (demo)");
       });
-      document.getElementById("mobileRegister").addEventListener("click", (e) => {
-        e.preventDefault();
-        sidebar.classList.remove("show");
-        overlay.classList.remove("show");
-        alert("Mobile Ro'yxat (demo)");
-      });
+      document
+        .getElementById("mobileRegister")
+        .addEventListener("click", (e) => {
+          e.preventDefault();
+          sidebar.classList.remove("show");
+          overlay.classList.remove("show");
+          alert("Mobile Ro'yxat (demo)");
+        });
 
       document.getElementById("newsLink").addEventListener("click", (e) => {
         e.preventDefault();
-        links.forEach(a => a.classList.remove('active'));
+        links.forEach((a) => a.classList.remove("active"));
         document.getElementById("newsLink").classList.add("active");
-        showSection('news');
+        showSection("news");
       });
       document.getElementById("lessonsLink").addEventListener("click", (e) => {
         e.preventDefault();
-        links.forEach(a => a.classList.remove('active'));
+        links.forEach((a) => a.classList.remove("active"));
         document.getElementById("lessonsLink").classList.add("active");
-        showSection('lessons');
+        showSection("lessons");
       });
       document.getElementById("chatsLink").addEventListener("click", (e) => {
         e.preventDefault();
-        links.forEach(a => a.classList.remove('active'));
+        links.forEach((a) => a.classList.remove("active"));
         document.getElementById("chatsLink").classList.add("active");
-        showSection('chats');
+        showSection("chats");
       });
 
       sidebar.addEventListener("transitionend", () => {
@@ -847,8 +1172,6 @@
           if (firstLink) firstLink.focus();
         }
       });
-
     </script>
-
   </body>
 </html>
