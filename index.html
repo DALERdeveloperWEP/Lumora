@@ -1,340 +1,854 @@
 <!DOCTYPE html>
 <html lang="uz">
   <head>
-    <link rel="icon" type="image/png" href="https://robocontest.uz/favicon.png">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RoboStyle Sayt</title>
-    <link
-      href="https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RoboStyle Sayt — To'liq (553+ qator)</title>
+    <link rel="icon" type="image/png" href="https://robocontest.uz/favicon.png" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
 
     <style>
-      /* ======== Asosiy sozlamalar ======== */
+      
       :root {
-        --bg: #1c1f26;
-        --sidebar: #15181f;
-        --card: #20242c;
-        --accent: #00bcd4;
-        --text: #e0e6ed;
-        --muted: #8a97a6;
+        --bg: #0f1724;
+        --sidebar: #0b1220;
+        --card: #0f1620;
+        --accent: #06b6d4;
+        --accent-2: #00e5b8;
+        --text: #e6eef6;
+        --muted: #98a2b3;
+        --glass: rgba(255, 255, 255, 0.03);
+        --radius: 12px;
+        --transition: 0.22s ease;
+      }
+
+      body.light {
+        --bg: #f6f8fb;
+        --sidebar: #ffffff;
+        --card: #ffffff;
+        --accent: #0b7285;
+        --accent-2: #0a8f6d;
+        --text: #0b1220;
+        --muted: #6b7280;
+        --glass: rgba(11, 18, 32, 0.03);
       }
 
       * {
         box-sizing: border-box;
+      }
+      html,
+      body {
         margin: 0;
         padding: 0;
-        font-family: "Segoe UI", sans-serif;
+        height: 100%;
       }
-
       body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         background: var(--bg);
         color: var(--text);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
+        transition: background var(--transition), color var(--transition);
+      }
+      a {
+        color: inherit;
+      }
+      img {
+        max-width: 100%;
+        display: block;
       }
 
-      /* ======== Sidebar ======== */
       .sidebar {
-        width: 240px;
-        background: var(--sidebar);
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
+        width: 260px;
+        background: linear-gradient(180deg, var(--sidebar), #07101a 120%);
+        padding: 22px;
         position: fixed;
+        left: 0;
         top: 0;
         bottom: 0;
+        overflow-y: auto;
+        border-right: 1px solid rgba(255, 255, 255, 0.02);
+        transition: transform 0.28s cubic-bezier(.2,.9,.3,1),
+          box-shadow 0.22s ease;
+        z-index: 1200;
+        box-shadow: 0 8px 30px rgba(2,6,23,0.5);
       }
 
-      .logo {
-        font-weight: bold;
-        font-size: 20px;
+      .sidebar.hide,
+      .sidebar.hidden {
+        transform: translateX(-110%);
+      }
+
+      .sidebar .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .sidebar .logo img {
+        width: 48px;
+        height: 48px;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+      }
+      .sidebar .logo h3 {
+        margin: 0;
+        font-size: 18px;
         color: var(--accent);
-        margin-bottom: 20px;
-        text-align: center;
+        letter-spacing: 0.2px;
+      }
+      .sidebar nav {
+        margin-top: 18px;
+      }
+      .sidebar nav a {
         display: flex;
+        gap: 12px;
         align-items: center;
-      }
-
-      aside .logo img {
-        height: 45px;
-        width: 45px;
-        margin-right: 8px;
-      }
-
-      nav {
-        flex: 1;
-      }
-
-      nav a {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+        padding: 10px 12px;
+        margin-bottom: 6px;
         color: var(--muted);
         text-decoration: none;
-        padding: 10px;
-        border-radius: 8px;
-        transition: 0.2s;
+        border-radius: 10px;
+        transition: background var(--transition), color var(--transition);
       }
-
-      nav a:hover {
-        background: var(--card);
+      .sidebar nav a.active,
+      .sidebar nav a:hover {
+        background: var(--glass);
         color: var(--accent);
       }
-
-      /* Profile */
-      .profile {
-        background: var(--card);
-        padding: 15px;
-        border-radius: 10px;
+      .sidebar .mobile-auth {
+        display: none;
+        margin-top: 18px;
+      }
+      .sidebar .mobile-auth a {
+        display: block;
         text-align: center;
-        margin-top: 20px;
+        padding: 8px;
+        border-radius: 8px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #fff;
+        text-decoration: none;
+        margin-bottom: 8px;
       }
 
-      .profile img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        margin-bottom: 10px;
-      }
-
-      .profile h4 {
-        margin-bottom: 5px;
-      }
-
-      .profile p {
-        font-size: 13px;
-        color: var(--muted);
-      }
-
-      /* ======== Header ======== */
       header {
         position: fixed;
-        left: 240px;
+        top: 0;
+        left: 260px;
         right: 0;
-        height: 60px;
-        background: var(--card);
+        height: 64px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0));
+        border-bottom: 1px solid rgba(255,255,255,0.02);
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 30px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        z-index: 10;
+        padding: 0 18px;
+        z-index: 1000;
+        transition: left var(--transition);
       }
-
+      header .left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+      header .menu-toggle {
+        display: none;
+        font-size: 20px;
+        cursor: pointer;
+        color: var(--accent);
+      }
       header h1 {
-        font-size: 18px;
-        color: var(--text);
+        margin: 0;
+        font-size: 16px;
+        letter-spacing: 0.2px;
+      }
+      header .controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
 
       .auth-buttons {
         display: flex;
-        gap: 10px;
+        gap: 8px;
       }
-
       .auth-buttons a {
-        background: var(--accent);
-        color: #fff;
-        padding: 8px 14px;
-        border-radius: 6px;
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 8px;
         text-decoration: none;
-        font-size: 14px;
-        transition: 0.2s;
+        color: #fff;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        font-weight: 600;
+        box-shadow: 0 6px 14px rgba(3, 10, 12, 0.35);
+        transition: transform .14s ease;
       }
-
       .auth-buttons a:hover {
-        opacity: 0.9;
+        transform: translateY(-2px);
       }
 
-      /* ======== Kontent qismi ======== */
-      .content {
-        margin-left: 240px;
-        margin-top: 70px;
-        padding: 20px;
-        max-width: 1100px;
-        flex: 1;
+      main {
+        margin-left: 260px;
+        padding: 90px 20px 20px;
+        transition: margin-left var(--transition);
+        min-height: calc(100vh - 140px);
+      }
+
+      footer {
+        margin-left: 260px;
+        padding: 18px 20px;
+        background: rgba(255,255,255,0.01);
+        color: var(--muted);
+        transition: margin-left var(--transition);
       }
 
       .card {
-        background: var(--card);
-        border-radius: 10px;
-        padding: 20px;
-        margin-bottom: 20px;
-      }
-
-      .card h2 {
-        color: var(--accent);
-        margin-bottom: 10px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.02));
+        border-radius: var(--radius);
+        padding: 14px;
+        box-shadow: 0 6px 20px rgba(2,6,23,0.35);
+        border: 1px solid rgba(255,255,255,0.02);
       }
 
       .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
+        grid-template-columns: 1fr 320px;
+        gap: 18px;
       }
 
-      .item {
-        background: var(--card);
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
+      .users-table,
+      .problems-table {
+        overflow-x: auto;
       }
 
-      .item h3 {
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      thead th {
+        text-align: left;
+        padding: 12px 10px;
         color: var(--accent);
-        margin-bottom: 8px;
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+      }
+      tbody td {
+        padding: 12px 10px;
+        border-bottom: 1px dashed rgba(255,255,255,0.02);
+        vertical-align: middle;
       }
 
-      /* ======== Footer ======== */
-      footer {
-        background: #14161b;
-        color: var(--muted);
-        text-align: center;
-        padding: 25px 10px;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        margin-left: 240px;
+      .avatar {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        object-fit: cover;
+        vertical-align: middle;
       }
 
-      footer a {
-        color: var(--accent);
-        /* color: white; */
-        text-decoration: none;
-        transition: 0.2s;
-      }
-
-      .footer-top {
-        background: #22303d;
+      .rank-badge {
         display: inline-block;
-        padding: 8px 16px;
-        border-radius: 8px;
-        margin-bottom: 15px;
-      }
-
-      .footer-bottom p {
-        margin: 5px 0;
-      }
-
-      .footer-lang {
-        margin-top: 10px;
-      }
-
-      .footer-lang a {
-        margin: 0 8px;
-        color: var(--text);
-        font-weight: 600;
-        font-size: 14px;
-      }
-
-      .footer-lang a:hover {
+        background: rgba(0, 188, 212, 0.08);
         color: var(--accent);
+        padding: 6px 10px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 13px;
+      }
+
+      .time-badge {
+        display: inline-block;
+        background: rgba(255,255,255,0.02);
+        color: var(--muted);
+        padding: 4px 8px;
+        border-radius: 8px;
+        font-size: 12px;
+      }
+
+      .problem-level.easy { color: #34d399; font-weight: 700; }
+      .problem-level.medium { color: #fbbf24; font-weight: 700; }
+      .problem-level.hard { color: #fb7185; font-weight: 700; }
+
+      .pagination {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 0;
+      }
+
+      .pagination button {
+        padding: 8px 12px;
+        background: transparent;
+        border: 1px solid rgba(255,255,255,0.04);
+        color: var(--text);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.16s ease, color 0.16s ease;
+      }
+      .pagination button.active {
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        border: none;
+        color: #fff;
+      }
+
+      .news-list li {
+        margin-bottom: 10px;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .news-list li .dot {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+        margin-top: 8px;
+      }
+
+      .to-top {
+        position: fixed;
+        right: 18px;
+        bottom: 18px;
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 12px 28px rgba(3,10,12,0.35);
+        z-index: 2000;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.28s, transform 0.28s;
+      }
+      .to-top.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .theme-toggle {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px;
+        cursor: pointer;
+        border-radius: 10px;
+        border: 1px solid rgba(255,255,255,0.03);
+      }
+
+      @media (max-width: 1000px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 800px) {
+        .sidebar {
+          width: 220px;
+        }
+        header {
+          left: 220px;
+        }
+        main {
+          margin-left: 220px;
+        }
+        footer {
+          margin-left: 220px;
+        }
       }
 
       @media (max-width: 700px) {
         .sidebar {
-          display: none;
+          transform: translateX(-110%);
         }
-
+        .sidebar.show {
+          transform: translateX(0);
+        }
         header {
           left: 0;
         }
-
-        .content {
+        main {
           margin-left: 0;
+          padding-top: 84px;
         }
-
         footer {
           margin-left: 0;
+        }
+        header .menu-toggle {
+          display: inline-block;
+        }
+        .close-btn {
+          display: block;
+          position: absolute;
+          top: 18px;
+          right: 18px;
+          color: var(--accent);
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .auth-buttons {
+          display: none;
+        }
+        .sidebar .mobile-auth {
+          display: none;
+          flex-direction: column;
+        }
+        .sidebar.show .mobile-auth {
+          display: flex;
+        }
+        .sidebar .mobile-auth a {
+          padding: 10px;
+        }
+      }
+
+      .fade-in {
+        animation: fadeIn .36s ease both;
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(6px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      
+      @media (min-width:700px){
+        #closeBtn{
+            display: none;
         }
       }
     </style>
   </head>
+
   <body>
-    <!-- ======== Sidebar ======== -->
-    <aside class="sidebar">
-      <div class="logo"><img src="./image/image.png" alt="">RoboContest</div>
+    <div class="overlay" id="overlay" aria-hidden="true"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar" role="navigation" aria-label="Asosiy menyu">
+      <i class="fa fa-times close-btn" id="closeBtn" title="Yopish" aria-hidden="true"></i>
+
+      <div class="logo">
+        <img src="https://robocontest.uz/favicon.png" alt="RoboContest" />
+        <h3>RoboContest</h3>
+      </div>
 
       <nav>
-        <a href="#"><i class="fas fa-user"></i> Foydalanuvchilar</a>
-        <a href="#"><i class="fas fa-book"></i> Masalalar</a>
-        <a href="#"><i class="fab fa-strava"></i> Urinishlar</a>
-        <a href="#"><i class="fas fa-medal"></i> Olimpiadalar</a>
-        <a href="#"><i class="fas fa-subscript"></i> Testlar</a>
-        <a href="#"><i class="fas fa-graduation-cap"></i> Kurslar</a>
-        <a href="#"><i class="fas fa-pen-alt"></i> Bloglar</a>
-        <a href="#"><i class="fa fa-info-circle"></i> Tizimda ishlash</a>
+        <a href="#" id="homeLink" class="active"><i class="fas fa-home"></i> Bosh sahifa</a>
+        <a href="#" id="usersLink"><i class="fas fa-user"></i> Foydalanuvchilar</a>
+        <a href="#" id="problemsLink"><i class="fas fa-book"></i> Masalalar</a>
+        <a href="#" id="newsLink"><i class="fas fa-newspaper"></i> Yangiliklar</a>
+        <a href="#" id="lessonsLink"><i class="fas fa-chalkboard-teacher"></i> Darslar</a>
+        <a href="#" id="chatsLink"><i class="fas fa-comments"></i> Fikrlar</a>
+        <a href="#" id="aboutLink"><i class="fa fa-info-circle"></i> Tizimda ishlash</a>
       </nav>
 
-      <div class="profile">
-        <img src="https://via.placeholder.com/60" alt="Profile" />
-        <h4>Foydalanuvchi</h4>
-        <p>Web Developer</p>
+      <div class="mobile-auth" aria-hidden="true">
+        <a href="#" id="mobileLogin"><i class="fa fa-key"></i> Kirish</a>
+        <a href="#" id="mobileRegister"><i class="fa fa-user-plus"></i> Ro‘yxatdan o‘tish</a>
+      </div>
+
+      <div style="margin-top:18px" class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-size:12px;color:var(--muted)">Faol foydalanuvchilar</div>
+            <div style="font-weight:700;color:var(--text)">1,245</div>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:12px;color:var(--muted)">Masalalar</div>
+            <div style="font-weight:700;color:var(--text)">1,842</div>
+          </div>
+        </div>
       </div>
     </aside>
 
-    <!-- ======== Header ======== -->
     <header>
-      <h1>Bosh sahifa</h1>
-      <div class="auth-buttons">
-        <a href="#"><i class="fa fa-key"></i> Kirish</a>
-        <a href="#"><i class="fa fa-user-plus"></i> Ro‘yxatdan o‘tish</a>
+      <div class="left">
+        <span class="menu-toggle" id="menuToggle" title="Menyu"><i class="fas fa-bars"></i></span>
+        <h1 id="pageTitle">Bosh sahifa</h1>
+      </div>
+
+      <div class="controls">
+        <div class="theme-toggle" id="themeToggle" title="Dark/Light">
+          <i class="fa fa-moon"></i>
+          <span style="font-size:13px;color:var(--muted);margin-left:6px">Rejim</span>
+        </div>
+
+        <div class="auth-buttons" id="authButtons">
+          <a href="#" id="loginBtn"><i class="fa fa-key"></i> Kirish</a>
+          <a href="#" id="registerBtn"><i class="fa fa-user-plus"></i> Ro‘yxatdan o‘tish</a>
+        </div>
       </div>
     </header>
 
-    <!-- ======== Kontent ======== -->
-    <main class="content">
-      <div class="card">
-        <h2>Bu qanday sayt?</h2>
-        <p>
-          Bu sayt Robocontest.uz’ning soddalashtirilgan, moslashtirilgan
-          versiyasi. Siz bu yerda dasturlash bo‘yicha mashq qilishingiz,
-          natijalarni kuzatishingiz va o‘zingizning profilingizni
-          boshqarishingiz mumkin.
-        </p>
-      </div>
+    <main>
+      <section id="home" class="fade-in">
+        <div class="grid">
+          <div>
+            <div class="card" style="margin-bottom:18px">
+              <h2 style="margin-top:0">RoboContest ga xush kelibsiz!</h2>
+              <p style="color:var(--muted)">Bu yerda siz dasturlash, algoritmlar va onlayn musobaqalar orqali o'zingizni sinab ko'rishingiz, oʻrganishingiz va jamiyat bilan almashishingiz mumkin.</p>
+              <div style="margin-top:12px;display:flex;gap:10px">
+                <button onclick="showSection('users')" style="padding:10px 14px;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border:none;color:#fff;cursor:pointer">Foydalanuvchilar</button>
+                <button onclick="showSection('problems')" style="padding:10px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:var(--text);cursor:pointer">Masalalar</button>
+              </div>
+            </div>
 
-      <div class="grid">
-        <div class="item">
-          <h3>Tizimda ishlash</h3>
-          <p>Tizim qanday ishlashini o‘rganing va o‘zingizni sinab ko‘ring!</p>
+            <div id="users" style="display:none" class="card">
+              <h3>RoboRating jadvali</h3>
+              <div class="users-table" style="margin-top:12px">
+                <table id="userTable">
+                </table>
+                <div class="pagination" id="userPagination" style="margin-top:12px"></div>
+              </div>
+            </div>
+
+            <div id="problems" style="display:none;margin-top:14px" class="card problems-table">
+              <h3>Masalalar ro'yxati</h3>
+              <div style="margin-top:10px">
+                <table id="problemTable"></table>
+                <div class="pagination" id="problemPagination"></div>
+              </div>
+            </div>
+
+            <div id="news" style="display:none;margin-top:14px" class="card">
+              <h3>Yangiliklar</h3>
+              <ul class="news-list" style="list-style:none;margin-top:10px;padding-left:0">
+                <li><span class="dot"></span><div><strong>Robocontest yangi dizayn</strong><div style="color:var(--muted);font-size:13px">Bugun — yangi interfeys chiqarildi.</div></div></li>
+                <li><span class="dot"></span><div><strong>Musobaqa e'lon qilindi</strong><div style="color:var(--muted);font-size:13px">Ishtirokchilar ro'yxati ochiq.</div></div></li>
+                <li><span class="dot"></span><div><strong>Server texnik ishlari</strong><div style="color:var(--muted);font-size:13px">23-iyun kuni texnik xizmat ko'rsatish bo'ladi.</div></div></li>
+              </ul>
+            </div>
+
+            <div id="lessons" style="display:none;margin-top:14px" class="card">
+              <h3>Darslar</h3>
+              <ol style="margin-top:10px;color:var(--muted)">
+                <li>Python asoslari — 12 moduly</li>
+                <li>Ma'lumot tuzilmalari — 8 moduly</li>
+                <li>Algoritmlar — 10 moduly</li>
+              </ol>
+            </div>
+
+            <div id="chats" style="display:none;margin-top:14px" class="card">
+              <h3>Fikrlar</h3>
+              <p style="color:var(--muted)">Jamiyat fikrlarini qoldiring — bu joy beta uchun namunaviy.</p>
+            </div>
+          </div>
+
+          <aside>
+            <div class="card" style="margin-bottom: 14px;">
+              <h4 style="margin-top:0">Tez ko'rinish</h4>
+              <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+                <a href="#" onclick="showSection('problems')">Oxirgi masalalar</a>
+                <a href="#" onclick="showSection('users')">Top foydalanuvchilar</a>
+                <a href="#" onclick="showSection('news')">Yangiliklar</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <h4 style="margin-top:0">Statistika</h4>
+              <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px;color:var(--muted)">
+                <div>Jami foydalanuvchilar: <strong style="color:var(--text)">12,540</strong></div>
+                <div>Faol 24 soat: <strong style="color:var(--text)">240</strong></div>
+                <div>O'rtacha reyting: <strong style="color:var(--text)">4.5</strong></div>
+              </div>
+            </div>
+          </aside>
         </div>
-        <div class="item">
-          <h3>Masalalar</h3>
-          <p>Dasturlash bo‘yicha turli masalalarni yeching va ball to‘plang.</p>
-        </div>
-        <div class="item">
-          <h3>Olimpiadalar</h3>
-          <p>Musobaqalarda qatnashing va o‘z reytingingizni oshiring.</p>
-        </div>
-        <div class="item">
-          <h3>Reyting</h3>
-          <p>Eng kuchli dasturchilar orasida joy oling!</p>
-        </div>
-      </div>
+      </section>
     </main>
 
-    <!-- ======== Footer ======== -->
     <footer>
-      <a href="" class="footer-top">
-        <span>Yangiliklardan xabardor bo‘lish uchun 🤖 Telegram kanalimizga obuna bo‘ling</span>
-      </a>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div style="display:flex;gap:12px;align-items:center">
+          <strong style="color:var(--accent)">Robocontest.uz</strong>
+          <span style="color:var(--muted)">© 2020–2025</span>
+        </div>
 
-      <div class="footer-bottom">
-        <p>Robocontest.uz Copyrighted © 2020–2025 by <a href="#">Robocontest Team</a></p>
-        <p>Tel: <a href="tel:+998953401070">+998-(95)-340-10-70</a></p>
-      </div>
-
-      <div class="footer-lang">
-        <a href="#">O‘zbekcha</a> |
-        <a href="#">Русский</a> |
-        <a href="#">English</a> |
-        <a href="#">Qaraqalpaqsha</a>
+        <div style="display:flex;gap:8px;align-items:center">
+          <a href="#" style="color:var(--muted);text-decoration:none">Telegram</a>
+          <a href="#" style="color:var(--muted);text-decoration:none">Kontakt</a>
+          <a href="#" style="color:var(--muted);text-decoration:none">GitHub</a>
+        </div>
       </div>
     </footer>
+
+    <div class="to-top" id="toTop" title="Yuqariga">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+
+    <script>
+      const sidebar = document.getElementById("sidebar");
+      const menuToggle = document.getElementById("menuToggle");
+      const closeBtn = document.getElementById("closeBtn");
+      const overlay = document.getElementById("overlay");
+      const links = document.querySelectorAll(".sidebar nav a");
+      const title = document.getElementById("pageTitle");
+      const authButtons = document.getElementById("authButtons");
+      const themeToggle = document.getElementById("themeToggle");
+      const toTop = document.getElementById("toTop");
+
+      const sectionsMap = {
+        home: document.getElementById("home"),
+        users: document.getElementById("users"),
+        problems: document.getElementById("problems"),
+        news: document.getElementById("news"),
+        lessons: document.getElementById("lessons"),
+        chats: document.getElementById("chats"),
+      };
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          sidebar.classList.remove("show");
+          overlay.classList.remove("show");
+        }
+      });
+
+      menuToggle.addEventListener("click", () => {
+        const isShown = sidebar.classList.toggle("show");
+        overlay.classList.toggle("show", isShown);
+      });
+
+      closeBtn.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+      });
+
+      overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+      });
+
+      links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          links.forEach((a) => a.classList.remove("active"));
+          link.classList.add("active");
+
+          const id = link.id.replace("Link", "");
+          showSection(id);
+
+          sidebar.classList.remove("show");
+          overlay.classList.remove("show");
+        });
+      });
+
+      function showSection(id) {
+        Object.keys(sectionsMap).forEach((k) => {
+          if (!sectionsMap[k]) return;
+          sectionsMap[k].style.display = "none";
+        });
+        if (sectionsMap[id]) {
+          sectionsMap[id].style.display = "block";
+          title.textContent = (document.getElementById(id + "Link")?.textContent || id).trim();
+        } else {
+          sectionsMap.home.style.display = "block";
+          title.textContent = "Bosh sahifa";
+        }
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+
+      const userTheme = localStorage.getItem("robostyle_theme") || "dark";
+      if (userTheme === "light") document.body.classList.add("light");
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light");
+        const isLight = document.body.classList.contains("light");
+        localStorage.setItem("robostyle_theme", isLight ? "light" : "dark");
+      });
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          toTop.classList.add("show");
+        } else {
+          toTop.classList.remove("show");
+        }
+      });
+      toTop.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      const userData = Array.from({ length: 23 }, (_, i) => ({
+        name: ["Asilbek Sunnatov","Dilshodbek Xo'jayev","Nazarbek Baltabaev","Husanboy Mansuraliyev","Sardor Salimov","Raxmatov Keldiyor","Asadbek Kazakov","Rahimov Behruzbek","Gulmira","Ismoiljonov Asadillo","Jasurbek Ilhomov","Yusupov Shavqat","Marjona","Azizbek","F_M","Nizomjon","Olimov Mirojlimon","Bekzod","Murod","Sarvar","Dilshod","Rustam","Kamila"][i % 23],
+        school: ["Muhammad al-Xorazmiy maktabi","-","Xorazmston","New Uzbekistan University","Navoiy Prezident maktabi","TATU","TATU","SamDU","Maktab","Universitet","Maktab 2","Maktab 3","Maktab 4","Maktab 5","Online","Offline","Guruh A","Guruh B","Guruh C","Guruh D","Guruh E","Guruh F","Guruh G"][i % 23],
+        rating: 2650 - i * 15,
+        systemRank: 14308 - i * 500,
+        lastActive: i === 0 ? "hozir" : i < 3 ? "2 soat avval" : i < 6 ? "1 kun avval" : i < 12 ? "3 kun avval" : "1 oy avval",
+        avatar: `https://randomuser.me/api/portraits/${i % 2 === 0 ? "men" : "women"}/${10 + i}.jpg`,
+      }));
+
+      // Problems data
+      const problemData = Array.from({ length: 28 }, (_, i) => ({
+        title: ["Minimal son","Teskari massiv","Eng katta raqam","Faktoriyal summasi","Massiv yig'indisi","Binary search","Graf muammosi","DP haqida","String parsing","Segment tree","Fenwick tree","Greedy example","DFS/BFS","Sorting challenge","Hashing task","Geometry problem","Number theory","Combinatorics","Ad-hoc problem","Recursion challenge","Bitmask DP","Flow network","Shortest path","MST challenge","Game theory","Probability","Data structures","Advanced math"][i % 28],
+        solved: 12450 - i * 120,
+        level: i % 3 === 0 ? "Oson" : i % 3 === 1 ? "O‘rta" : "Qiyin",
+        rating: (4.8 - (i % 5) * 0.1).toFixed(1),
+        author: ["Asilbek","Dilshod","Nazirbek","Sardor","Husanboy","Aziz","Lola","Jasur","Malika","Bobur","Islom","Asadbek","Ali","Vali","Sanjar","Diyor","Bek","Shahzod","Munis","Umid","Kamron","Javlon","Madina","Nilufar","Zarif","Oybek","Rustam","Farruh"][i % 28],
+      }));
+
+      const rowsPerPageUsers = 5;
+      const rowsPerPageProblems = 6;
+
+      const userTable = document.getElementById("userTable");
+      const userPagination = document.getElementById("userPagination");
+
+      function renderUserTable(page = 1) {
+        const start = (page - 1) * rowsPerPageUsers;
+        const end = start + rowsPerPageUsers;
+        const visibleUsers = userData.slice(start, end);
+
+        userTable.innerHTML = `
+          <thead>
+            <tr>
+              <th>Ism familiya</th>
+              <th>RoboRating</th>
+              <th>Tizimdagi reytingi</th>
+              <th>Faolligi</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${visibleUsers
+              .map(
+                (u) => `
+              <tr>
+                <td style="display:flex;align-items:center;gap:10px">
+                  <img src="${u.avatar}" alt="${u.name}" class="avatar" />
+                  <div>
+                    <div style="font-weight:700">${u.name}</div>
+                    <div style="font-size:12px;color:var(--muted)">${u.school}</div>
+                  </div>
+                </td>
+                <td><span class="rank-badge">#</span> ${u.rating}</td>
+                <td>⭐ ${u.systemRank}</td>
+                <td><span class="time-badge">${u.lastActive}</span></td>
+              </tr>
+            `
+              )
+              .join("")}
+          </tbody>
+        `;
+
+        const total = Math.ceil(userData.length / rowsPerPageUsers);
+        userPagination.innerHTML = Array.from({ length: total }, (_, i) => `<button class="${i+1 === page ? 'active' : ''}" onclick="renderUserTable(${i+1})">${i+1}</button>`).join("");
+      }
+
+      const problemTable = document.getElementById("problemTable");
+      const problemPagination = document.getElementById("problemPagination");
+
+      function renderProblemTable(page = 1) {
+        const start = (page - 1) * rowsPerPageProblems;
+        const end = start + rowsPerPageProblems;
+        const visible = problemData.slice(start, end);
+
+        problemTable.innerHTML = `
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Masala nomi</th>
+              <th>Yechganlar</th>
+              <th>Daraja</th>
+              <th>Reyting</th>
+              <th>Muallif</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${visible.map((p, i) => `
+              <tr>
+                <td>${start + i + 1}</td>
+                <td>${p.title}</td>
+                <td>${p.solved}</td>
+                <td><span class="problem-level ${p.level === 'Oson' ? 'easy' : p.level === "O‘rta" ? 'medium' : 'hard'}">${p.level}</span></td>
+                <td>${p.rating} ⭐</td>
+                <td>${p.author}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        `;
+
+        const total = Math.ceil(problemData.length / rowsPerPageProblems);
+        problemPagination.innerHTML = `
+          <button ${page === 1 ? "disabled" : ""} onclick="renderProblemTable(${page - 1})">⟨ Oldingi</button>
+          ${Array.from({ length: total }, (_, i) => `<button class="${i+1 === page ? 'active' : ''}" onclick="renderProblemTable(${i+1})">${i+1}</button>`).join('')}
+          <button ${page === total ? "disabled" : ""} onclick="renderProblemTable(${page + 1})">Keyingi ⟩</button>
+        `;
+      }
+
+      renderUserTable();
+      renderProblemTable();
+
+      function handleResize() {
+        const w = window.innerWidth;
+        if (w <= 480) {
+          authButtons.style.display = "none";
+        } else {
+          authButtons.style.display = "flex";
+        }
+      }
+      window.addEventListener("resize", handleResize);
+      handleResize();
+
+      document.getElementById("loginBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Kirish oynasi (demo).");
+      });
+      document.getElementById("registerBtn").addEventListener("click", (e) => {
+        e.preventDefault();
+        alert("Ro'yxatdan o'tish (demo).");
+      });
+
+      document.getElementById("mobileLogin").addEventListener("click", (e) => {
+        e.preventDefault();
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+        alert("Mobile Kirish (demo)");
+      });
+      document.getElementById("mobileRegister").addEventListener("click", (e) => {
+        e.preventDefault();
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+        alert("Mobile Ro'yxat (demo)");
+      });
+
+      document.getElementById("newsLink").addEventListener("click", (e) => {
+        e.preventDefault();
+        links.forEach(a => a.classList.remove('active'));
+        document.getElementById("newsLink").classList.add("active");
+        showSection('news');
+      });
+      document.getElementById("lessonsLink").addEventListener("click", (e) => {
+        e.preventDefault();
+        links.forEach(a => a.classList.remove('active'));
+        document.getElementById("lessonsLink").classList.add("active");
+        showSection('lessons');
+      });
+      document.getElementById("chatsLink").addEventListener("click", (e) => {
+        e.preventDefault();
+        links.forEach(a => a.classList.remove('active'));
+        document.getElementById("chatsLink").classList.add("active");
+        showSection('chats');
+      });
+
+      sidebar.addEventListener("transitionend", () => {
+        if (sidebar.classList.contains("show")) {
+          const firstLink = sidebar.querySelector("nav a");
+          if (firstLink) firstLink.focus();
+        }
+      });
+
+    </script>
+
   </body>
 </html>
